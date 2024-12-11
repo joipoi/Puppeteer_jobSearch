@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Hitta jobb från platsbanken</title>
+</head>
+
+<body>
+    <div class="box" id="left-div">
+        <div class="user-input-Div" id="search-div">
+        <p id="errorText"></p>
+        <p>Välj plats</p>
+        <select id="stateSelect">
+            <option>Välj Landskap</option>
+        </select>
+        <select id="citySelect">
+        </select>
+
+        <p>Välj jobtyp</p>
+        <select id="jobTypeSelect">
+            <option>Välj Jobtyp</option>
+        </select>
+        <select id="jobSelect">
+        </select>
+
+        <p>Skriv sökord</p>
+        <input type="text" id="searchInput">
+
+        <button onclick="getJobs()" id="getJobsBtn">Hitta job</button>
+       
+    </div>
+    <div class="user-input-Div">
+        <h2>Se erfarenhets krav för de 5 första jobben</h2>
+        <button disabled onclick="getExperienceRequirements()" id="getExperienceRequirements">Hämta</button>
+    </div>
+    <div class="user-input-Div" id="filter-div">
+        <div id="inner-filter-div">
+        <div class="filter-content">
+            <h2 class="filterLabel">Filtrera resultat</h2>
+            
+            <p class="filterLabel">Inkludera/Exkludera Jobb Namn</p>
+            <input type="text" id="nameFilter">
+            <span id="include-name-filter" class="filter-icon">➕</span>
+            <span id="exclude-name-filter" class="filter-icon">➖</span>
+
+            <p class="filterLabel">Inkludera/Exkludera Företags Namn</p>
+            <input type="text" id="companyFilter">
+            <span id="include-company-filter" class="filter-icon">➕</span>
+            <span id="exclude-company-filter" class="filter-icon">➖</span>
+        </div>
+        
+        <ul id="filtersUL">
+            
+        </ul>
+    </div>
+            <button disabled id="clearFiltersBtn" onclick="clearFilters()">Clear filters</button>
+        
+            <p>Tidigaste publicerings datum:</p>
+            <input type="date" id="startDateInput"/>
+        
+            <p>Senaste publicerings datum:</p>
+            <input type="date" id="endDateInput"/>
+            <button disabled onclick="filterResults()" id="filterBtn">Filtrera</button>
+        </div>
+
+    </div>
+   
+    <div class="box" id="center-div">
+        <ul id="resultsUL">
+        </ul>
+    </div>  
+    <div class="box" id="right-div">
+        <h1 hidden="true" id="loadingText">HÄMTAR DATA, VÄNLIGEN VÄNTA</h1>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
